@@ -2,15 +2,15 @@
   <section
     class="about_section"
     :class="{
-      'bg-custom_dark': this.system_color,
-      'bg-custom_light': !this.system_color,
+      'bg-custom_dark_image': this.system_color,
+      'bg-custom_light_image': !this.system_color,
     }"
   >
-    <div class="about_content_layer h-full w-full">
+    <div class="about_content_layer">
       <div class="container mx-auto">
         <div class="about_content_title text-center mx-auto uppercase pt-10">
           <h1
-            class="font-moonhouse md:text-[6rem] text-[2rem]"
+            class="font-moonhouse md:text-[6rem] text-[2rem] leading-[5rem] md:mb-[3rem]"
             :class="{
               'text-dark_yellow': this.system_color,
               'text-light_indigo': !this.system_color,
@@ -20,7 +20,7 @@
             haqida batafsil
           </h1>
           <p
-            class="w-[80%] font-unbounded text-xl mx-auto"
+            class="w-[80%] font-unbounded text-[14px] md:text-xl mx-auto"
             :class="{
               'text-white': this.system_color,
               'text-black': !this.system_color,
@@ -32,12 +32,12 @@
             bilan ishlang, eng yaxshi natijalarga erishish uchun!
           </p>
         </div>
-        <div class="about_content_price my-[10rem] relative">
+        <div class="about_content_price my-[4rem] relative">
           <div
             class="md:relative md:hidden md:w-auto md:text-left mx-auto w-[300px] text-center block top-0 right-0"
           >
             <div
-              class="about_price inline-block py-4 px-10 relative rotate-12"
+              class="about_price inline-block py-4 px-10 relative rotate-[5deg]"
               :class="{
                 'bg-dark_yellow': !this.system_color,
                 'bg-light_indigo': this.system_color,
@@ -65,7 +65,7 @@
               />
             </div>
           </div>
-          <ul class="prices_group md:flex gap-4 my-10 px-10">
+          <ul class="prices_group md:flex gap-4 my-10 px-5">
             <li
               class="prices_item uppercase font-normal"
               :class="{
@@ -124,34 +124,9 @@
               </div>
             </div>
             <div
-              :class="{
-                'border-white': this.system_color,
-                'border-black': !this.system_color,
-              }"
-              class="about_data w-[400px] md:w-2/4 relative py-4 mt-[5rem] px-10 border inline-block text-center -rotate-3"
+              class="about_data w-[300px] mx-auto md:mx-0 md:w-2/4 bottom-10 md:bottom-[10rem] relative -rotate-3"
             >
-              <img
-                src="../assets/white.png"
-                alt=""
-                class="absolute z-50 md:-left-[6rem] -top-[5rem]"
-                v-if="this.system_color"
-              />
-              <img
-                src="../assets/black.png"
-                alt=""
-                class="absolute z-50 md:-left-[6rem] -top-[5rem]"
-                v-if="!this.system_color"
-              />
-              <h1
-                class="md:text-[2rem] uppercase font-bruno"
-                :class="{
-                  'text-white': this.system_color,
-                  'text-black': !this.system_color,
-                }"
-              >
-                “hackathon” 25-iyul kuni <br />
-                soat 10:00 da bo'lib o'tadi.
-              </h1>
+              <img :src="imageSrc" alt="About Price" class="w-full" />
             </div>
           </div>
         </div>
@@ -162,6 +137,8 @@
 </template>
 <script>
 import Lines from "./Lines.vue";
+import aboutPrice from "../assets/about_price.png";
+import aboutPriceDark from "../assets/about_price_dark.png";
 
 export default {
   data() {
@@ -188,6 +165,9 @@ export default {
     arrowImage() {
       return this.system_color ? "../assets/white.png" : "../assets/black.png";
     },
+    imageSrc() {
+      return this.system_color ? aboutPrice : aboutPriceDark;
+    },
   },
   mounted() {
     const storedItem = JSON.parse(localStorage.getItem("switch"));
@@ -199,23 +179,6 @@ export default {
 </script>
 <style scoped>
 .about_section {
-  padding: 1rem 0;
-}
-
-.about_content_layer {
-  background: url("../assets/money_bg.png");
-  background-repeat: no-repeat;
-  background-size: cover;
-}
-
-.bg-custom_dark {
-  background: linear-gradient(to right, #000000, #1d1d1d, #000000);
-  height: 100%;
-  width: 100%;
-}
-.bg-custom_light {
-  background: linear-gradient(to right, #e9e9e9, #ffffff, #e9e9e9);
-  height: 100%;
-  width: 100%;
+  padding: 8rem 0 0 0;
 }
 </style>

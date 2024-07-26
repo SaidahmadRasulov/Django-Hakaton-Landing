@@ -6,10 +6,10 @@
       'bg-custom_light': !system_color,
     }"
   >
-    <div class="header_custom_bg md:!h-[110vh] !h-[700px]">
+    <div class="header_custom_bg md:!h-[110vh] !h-[500px]">
       <div class="container mx-auto">
         <div
-          class="header_navbar flex items-center justify-between py-4 relative z-20"
+          class="header_navbar px-4 flex items-center justify-between py-4 relative z-20"
         >
           <div class="navbar_logo">
             <img src="../assets/logo.png" alt="Logo" />
@@ -28,7 +28,7 @@
         <div class="header_content relative">
           <div class="header_title text-center uppercase">
             <h1
-              class="md:text-[200px] text-[100px] font-moonhouse"
+              class="md:text-[200px] text-[75px] font-moonhouse"
               :class="{
                 'text-dark_yellow': system_color,
                 'text-light_indigo': !system_color,
@@ -39,7 +39,7 @@
               <span> athon </span>
             </h1>
             <p
-              class="md:text-2xl text-sm w-2/3 mx-auto font-unbounded"
+              class="md:text-2xl text-sm mx-auto font-unbounded"
               :class="{ 'text-white': system_color }"
             >
               Django Academy tomonidan o'tkaziladigan qiziqarli xakatonda
@@ -57,20 +57,21 @@
             </button>
           </div>
           <div
-            class="header_image absolute  top-10 md:top-[5rem] left-1/2 -translate-x-1/2 w-1/3"
+            class="header_image absolute top-5 md:top-[1rem] left-1/2 -translate-x-1/2 w-1/2 md:w-1/3"
           >
             <img :src="headerImage" alt="" class="w-full" />
           </div>
         </div>
       </div>
     </div>
-    <Lines />
+    <LineHeader />
   </header>
 </template>
 
 <script>
 import headDark from "../assets/head_dark.png";
 import headLight from "../assets/head_light.png";
+import LineHeader from "./LineHeader.vue";
 import Lines from "./Lines.vue";
 
 export default {
@@ -82,6 +83,7 @@ export default {
   methods: {
     handleSwitch() {
       this.system_color = !this.system_color;
+
       window.location.reload();
       localStorage.setItem("switch", JSON.stringify(this.system_color));
     },
@@ -96,8 +98,11 @@ export default {
     if (storedItem !== null) {
       this.system_color = storedItem;
     }
+    if (this.system_color) {
+      document.body.style.backgroundColor = "#0d0d0d";
+    }
   },
-  components: { Lines },
+  components: { Lines, LineHeader },
 };
 </script>
 

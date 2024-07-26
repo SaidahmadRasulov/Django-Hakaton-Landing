@@ -1,14 +1,26 @@
 <template>
-  <div class="relative top-10">
-    <div class="ticker-wrapper md:bottom-[4rem] bottom-[2rem] z-[2] rotate-[3deg]">
-      <div class="ticker md:p-[30px] p-[1.5rem] bg_line_indigo_gradient">
+  <div class="relative top-0">
+    <div class="ticker-wrapper z-[2] rotate-[3deg]">
+      <div
+        class="ticker"
+        :class="{
+          bg_line_indigo_gradient: this.system_color,
+          bg_line_yellow_gradient: !this.system_color,
+        }"
+      >
         <div class="text font-unbounded">
           <span v-for="item in words">{{ item }}</span>
         </div>
       </div>
     </div>
-    <div class="ticker-wrapper md:bottom-[4rem] bottom-[2rem]  z-[3] rotate-[-3deg]">
-      <div class="ticker md:p-[30px] p-[1.5rem] bg_line_indigo_gradient">
+    <div class="ticker-wrapper z-[3] rotate-[-3deg]">
+      <div
+        class="ticker"
+        :class="{
+          bg_line_indigo_gradient: this.system_color,
+          bg_line_yellow_gradient: !this.system_color,
+        }"
+      >
         <div class="text font-unbounded">
           <span v-for="item in words">{{ item }}</span>
         </div>
@@ -70,6 +82,7 @@ export default {
 
 .ticker {
   transform: rotate(-0.53deg);
+  padding: 30px;
   height: 100%;
   display: flex;
   align-items: center;

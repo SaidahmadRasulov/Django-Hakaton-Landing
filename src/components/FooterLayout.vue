@@ -1,16 +1,10 @@
 <template>
-  <section
-    class="footer_section py-6"
-    :class="{
-      'bg-custom_dark': system_color,
-      'bg-custom_light': !system_color,
-    }"
-  >
+  <section class="footer_section py-10">
     <div class="container mx-auto px-4 md:px-8">
       <div class="flex flex-col md:flex-row justify-between items-center">
         <div class="footer_title w-full md:w-1/2 mb-6 md:mb-0">
           <h1
-            class="text-4xl md:text-[6rem] leading-[6rem] font-moonhouse"
+            class="text-4xl md:text-[6rem] md:leading-[6rem] font-moonhouse"
             :class="{
               'text-dark_yellow': system_color,
               'text-light_indigo': !system_color,
@@ -31,7 +25,7 @@
           </p>
         </div>
         <div class="footer_contact w-full md:w-1/3">
-          <form @submit="handleSubmit" class="footer_form">
+          <form @submit="handleSubmit" class="footer_form font-unbounded">
             <div class="mb-6">
               <label
                 for="fullname"
@@ -45,7 +39,7 @@
               <input
                 type="text"
                 placeholder="ABDULLA"
-                class="outline-none py-2 px-4 w-full border-2 rounded-lg bg-transparent"
+                class="outline-none placeholder:text-xl p-[23px] w-full border-2 bg-transparent"
                 :class="{
                   'border-dark_yellow text-white': this.system_color,
                   'border-light_indigo text-black': !this.system_color,
@@ -67,7 +61,7 @@
               <input
                 type="text"
                 placeholder="+998 99 990 90 09"
-                class="py-2 outline-none px-4 w-full border-2 rounded-lg bg-transparent"
+                class="outline-none placeholder:text-xl p-[23px] w-full border-2 bg-transparent"
                 :class="{
                   'border-dark_yellow text-white': this.system_color,
                   'border-light_indigo text-black': !this.system_color,
@@ -88,7 +82,7 @@
               >
               <select
                 @change="console.log(this.user_course)"
-                class="outline-none py-2 px-4 w-full border-2 rounded-lg bg-transparent"
+                class="outline-none placeholder:text-xl p-[23px] w-full border-2 bg-transparent"
                 :class="{
                   'border-dark_yellow text-white': this.system_color,
                   'border-light_indigo text-black': !this.system_color,

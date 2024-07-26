@@ -24,7 +24,7 @@ body {
 }
 
 .header_custom_bg {
-  background: url(../assets/header_image.png);
+  background: url("./assets/header_image.png");
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -52,4 +52,23 @@ body {
 }
 .bg_indigo_gradient {
   background: linear-gradient(to right, #781fe380, #781fe3);
+}
+
+.bg_line_yellow_gradient {
+  background: linear-gradient(to right, #b2e000, #caff00, #b2e000);
+}
+
+.bg_line_indigo_gradient {
+  background: linear-gradient(to right, #6013bc, #781fe3, #6013bc);
+}
+
+.bg-custom_dark_image {
+  background: url("./assets/money_bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bg-custom_light_image {
+  background: url("./assets/money_white.png");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
